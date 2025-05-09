@@ -1,0 +1,22 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: geneva;
+    padding: 1px;
+    font-weight: 900;
+    color: White;
+  }
+  ol {
+    font-family: arial;
+    padding: 1px;
+    font-weight: 100;
+    color: White;
+  }
+   * {
+    background: Black;
+  }
+  p {
+  color: White;
+  font-family: Arial;
+  }
+  br {
+    background: Black
+  }
