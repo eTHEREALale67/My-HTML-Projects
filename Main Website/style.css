@@ -1,8 +1,11 @@
 h1, h2, h3, h4, h5, h6 {
     font-family: geneva;
-    padding: 1px;
+    padding: 8px;
     font-weight: 900;
-    color: White;
+    color: black;
+  }
+  h1 {
+    text-size: 56px;
   }
   ol {
     font-family: arial;
@@ -11,15 +14,20 @@ h1, h2, h3, h4, h5, h6 {
     color: White;
   }
    * {
-    background: Black;
+    background: white;
   }
   p {
-  color: White;
+  color: black;
   font-family: Arial;
+  text-align: left;
+  padding: 6px;
   }
-  br {
-    background: Black
-  }
-  ul.navigation {
-    list-style: none;
-  }
+li {
+  display: inline;
+  float: left;
+}
+a {
+  display: block;
+  padding: 16px;
+  background-color: #dddddd;
+}
