@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     navLinks.forEach(link => {
         if (link.getAttribute('href') === currentPage) {
-            link.style.color = '#ff6b6b';
+            link.classList.add('active-link');
         }
     });
 
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     headings.forEach(heading => {
         heading.addEventListener('mouseover', () => {
             heading.style.transform = 'scale(1.05)';
-            heading.style.transition = 'transform 0.3s ease';
+            heading.classList.add('hover-transition');
         });
         
         heading.addEventListener('mouseout', () => {
@@ -36,16 +36,31 @@ document.addEventListener('DOMContentLoaded', function() {
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        display: none;
+        /* Removed inline display: none; */
     `;
 
     document.body.appendChild(backToTop);
 
+    let scrollTimeout;
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 200) {
-            backToTop.style.display = 'block';
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            if (window.scrollY > 200) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        if ('scrollBehavior' in document.documentElement.style) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
-            backToTop.style.display = 'none';
+            let scrollInterval = setInterval(() => {
+                let currentScroll = window.scrollY;
+                if (currentScroll > 0) {
+                    window.scrollBy(0, -50); // Scroll up in steps
+                } else {
+                    clearInterval(scrollInterval);
+                }
+            }, 16); // Approx. 60fps
         }
     });
 
